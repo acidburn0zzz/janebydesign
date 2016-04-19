@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver');
 
 
-gulp.task('default', ['blog', 'pages', 'css', 'scripts', 'server']);
+gulp.task('default', ['blog', 'pages', 'css', 'scripts', 'watch', 'server']);
 
 gulp.task('blog', function() {
   return gulp.src('src/posts/**/*.md')
