@@ -1,15 +1,14 @@
-var gulp = require('gulp'),
-    markdown = require('gulp-markdown'),
-    render = require('gulp-nunjucks-render'),
-    sass = require('gulp-sass'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
+var gulp       = require('gulp'),
+    del        = require('del'),
+    markdown   = require('gulp-markdown'),
+    sequence   = require('gulp-sequence'),
+    render     = require('gulp-nunjucks-render'),
+    sass       = require('gulp-sass'),
+    uglify     = require('gulp-uglify'),
+    concat     = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
-    watch = require('gulp-watch'),
-    webserver = require('gulp-webserver');
-
-
-gulp.task('default', ['blog', 'pages', 'css', 'scripts', 'watch', 'server']);
+    watch      = require('gulp-watch'),
+    webserver  = require('gulp-webserver');
 
 gulp.task('blog', function() {
   return gulp.src('src/posts/**/*.md')
@@ -34,8 +33,8 @@ gulp.task('css', function() {
 gulp.task('scripts', function() {
   return gulp.src('src/js/*.js')
              .pipe(sourcemaps.init())
-               .pipe(uglify())
-               .pipe(concat('app.min.js'))
+             .pipe(uglify())
+             .pipe(concat('app.min.js'))
              .pipe(sourcemaps.write())
              .pipe(gulp.dest('dist/js'));
 });
@@ -43,12 +42,11 @@ gulp.task('scripts', function() {
 // install a watcher here (gulp-watcher)
 gulp.task('watch', ['css', 'pages', 'blog'], function() {
   gulp.watch('src/sass/**/*.scss', ['css']);
-  gulp.watch('src/pages/**/*.html', ['pages']);
+  gulp.watch('src/**/*.html', ['pages', 'blog']);
   gulp.watch('src/posts/**/*.md', ['blog']);
-  gulp.watch('src/templates/**/*.html', ['pages']);
 });
 
-gulp.task('server', function() {
+gulp.task('serve', function() {
   return gulp.src('dist/')
              .pipe(webserver({
                livereload: true,
@@ -56,3 +54,9 @@ gulp.task('server', function() {
                open: true
              }));
 });
+
+gulp.task('clean', function(cb) {
+  return del(['dist'], cb);
+});
+
+gulp.task('default', sequence('clean', ['css', 'scripts'], ['blog', 'pages'], ['serve', 'watch']));
