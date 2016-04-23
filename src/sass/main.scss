@@ -12,7 +12,8 @@ div {
   display: block;
 }
 
-a {
+a,
+.navbar-default .navbar-nav > li > a {
   color: $mint;
   text-transform: uppercase;
   transition: all .2s ease-in-out;
@@ -57,18 +58,6 @@ a {
   margin: 10rem auto 5rem;
 }
 
-.nav-links {
-  width: auto;
-  height: 2rem;
-  padding: 0;
-  list-style: none;
-
-  li {
-    display: inline-block;
-    padding: 0 2.5rem;
-  }
-}
-
 .bio {
   padding-top: 5rem;
   text-align: center;
@@ -104,13 +93,6 @@ a {
     padding: 0;
     width: 60%;
     max-width: 100rem;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    margin: 0;
   }
 
   hr {
