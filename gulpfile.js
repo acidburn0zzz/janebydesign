@@ -1,27 +1,58 @@
+var site = {
+  title: "My awesome blog/site",
+  posts: []
+};
+
+
 var gulp       = require('gulp'),
     del        = require('del'),
+    data       = require('gulp-data'),
     markdown   = require('gulp-markdown'),
     sequence   = require('gulp-sequence'),
-    render     = require('gulp-nunjucks-render'),
+  frontMatter  = require('gulp-front-matter'),
+nunjucksRender = require('gulp-nunjucks-render'),
     sass       = require('gulp-sass'),
     uglify     = require('gulp-uglify'),
     concat     = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
+      through  = require('through2'),
     watch      = require('gulp-watch'),
     webserver  = require('gulp-webserver');
 
+var collectPosts = function() {
+  var posts = [];
+  return through.obj(function(file, enc, cb) {
+    var post = file.page;
+    post.body = file.contents.toString();
+    posts.push(post);
+    cb();
+  }, function(cb) {
+    site.posts = posts;
+    cb();
+  });
+};
+
 gulp.task('blog', function() {
   return gulp.src('src/posts/**/*.md')
+             .pipe(frontMatter({property: 'page', remove: true}))
+             .pipe(collectPosts())
+             .pipe(data({site: site}))
              .pipe(markdown())
              .pipe(gulp.dest('dist'));
 });
 
 gulp.task('pages', function() {
   return gulp.src('src/pages/**/*.html')
-             .pipe(render({
+             .pipe(data({site: site}))
+             .pipe(nunjucksRender({
                path: 'src/templates'
              }))
              .pipe(gulp.dest('dist'));
+});
+
+gulp.task('images', function() {
+  return gulp.src('src/img/**/*')
+             .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('css', function() {
@@ -59,4 +90,4 @@ gulp.task('clean', function(cb) {
   return del(['dist'], cb);
 });
 
-gulp.task('default', sequence('clean', ['css', 'scripts'], ['blog', 'pages'], ['serve', 'watch']));
+gulp.task('default', sequence('clean', ['images', 'css', 'scripts'], 'blog', 'pages', ['serve', 'watch']));
