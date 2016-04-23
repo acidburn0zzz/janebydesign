@@ -39,8 +39,7 @@ a {
   &:hover {
     opacity: 1;
   }
-}
-
+} 
 .box:hover {
   box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .2);
   transform: translate(0, -.5rem);
@@ -97,6 +96,7 @@ a {
     position: absolute;
     top: 0;
     right: 0;
+    overflow-y: scroll;
   }
 
   .bio {
@@ -114,17 +114,17 @@ a {
   }
 
   hr {
-    width: 70%;
+    width: 60%;
     height: .4rem;
     background-color: $opacity-mint;
     margin: 1rem auto;
   }
 
   .latest-posts {
-    margin: 0 19rem;
+    margin: 0 25rem;
 
     span:nth-child(1) {
-      margin-right: 60.5rem;
+      margin-right: 48.5rem;
     }
   }
 
@@ -144,7 +144,7 @@ a {
 
     .box {
       background-color: $light-grey;
-      width: 41rem;
+      width: 35rem;
       height: 15rem;
     }
   }
