@@ -1,6 +1,41 @@
+$mint: #30D2B8;
+$dark-grey: #36383E;
+$blue: #00BCD4;
+
 body {
+
+  font-family: 'NotCourierSansRegular';
+
   h1 {
-    font-family: 'Roboto';
-    font-size: 2.5em;
+    font-family: 'NotCourierSansBold';
+    font-size: 4.5em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+    font-size: 1.2em;
+  }
+
+  .bio span {
+    font-size: 1.3em;
+    color: $blue;
+  }
+
+  .latest-posts span {
+    font-family: 'NotCourierSansBold';
+    font-size: 1.8rem;
+    color: $dark-grey;
+  }
+
+  .nav-links li {
+    font-size: 1.2em;
+  }
+
+  .label-default {
+    font-family: 'NotCourierSansRegular' !important;
+    font-size: 1em !important;
+    color: $mint !important;
   }
 }

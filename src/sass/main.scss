@@ -1,0 +1,151 @@
+$mint: #30D2B8;
+$light-mint: #7CF6E3;
+$opacity-mint: #E0F9F5;
+$light-grey: #FAFAFA;
+$yellow: #FFF712;
+$dark-grey: #36383E;
+$blue: #00BCD4;
+$white: #FFF;
+$black: #000;
+
+div {
+  display: block;
+}
+
+a {
+  color: $mint;
+  text-transform: uppercase;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    color: $light-mint;
+    transition: all .2s ease-in-out;
+    text-decoration: none;
+  }
+}
+
+.btn-circle {
+  background-color: $yellow;
+  color: $dark-grey;
+  width: 4rem;
+  height: 4rem;
+  opacity: .5;
+  border-radius: 100%;
+
+  i {
+    padding-top: .5rem;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.box:hover {
+  box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .2);
+  transform: translate(0, -.5rem);
+}
+
+.navbar {
+  background-color: transparent;
+  border: 0;
+  width: inherit;
+  margin-left: auto;
+}
+
+.container {
+  padding: 0;
+  margin: 10rem auto 5rem;
+}
+
+.nav-links {
+  width: auto;
+  height: 2rem;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    padding: 0 2.5rem;
+  }
+}
+
+.bio {
+  padding-top: 5rem;
+  text-align: center;
+}
+
+.label-default {
+  background-color: $opacity-mint;
+  color: $mint;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 900px) {
+  #mastleft {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 25% !important;
+    height: 100%;
+    background-image: url('http://bit.ly/23PL7nk');
+    z-index: 1000;
+  }
+
+  .container {
+    width: 75%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .bio {
+    margin: 14rem auto 10rem;
+    padding: 0;
+    width: 60%;
+    max-width: 100rem;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    margin: 0;
+  }
+
+  hr {
+    width: 70%;
+    height: .4rem;
+    background-color: $opacity-mint;
+    margin: 1rem auto;
+  }
+
+  .latest-posts {
+    margin: 0 19rem;
+
+    span:nth-child(1) {
+      margin-right: 60.5rem;
+    }
+  }
+
+  .preview {
+    margin: 5rem 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin-right: 4.5rem;
+
+      &:nth-child(2) {
+        margin-right: 0;
+      }
+    }
+
+    .box {
+      background-color: $light-grey;
+      width: 41rem;
+      height: 15rem;
+    }
+  }
+}
