@@ -1,6 +1,7 @@
 $mint: #30D2B8;
 $dark-grey: #36383E;
 $blue: #00BCD4;
+$yellow: #FFF712;
 
 body {
 
@@ -16,6 +17,10 @@ body {
   p {
     margin-bottom: 0;
     font-size: 1.2em;
+  }
+
+  ::selection {
+    background-color: $yellow;
   }
 
   .bio span {

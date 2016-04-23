@@ -32,6 +32,8 @@ a,
   height: 4rem;
   opacity: .5;
   border-radius: 100%;
+  float: right;
+  margin-right: 3rem;
 
   i {
     padding-top: .5rem;
@@ -51,6 +53,10 @@ a,
   border: 0;
   width: inherit;
   margin-left: auto;
+
+  .navbar-default .navbar-fixed-bottom {
+    background-color: $white !important;
+  }
 }
 
 .container {
