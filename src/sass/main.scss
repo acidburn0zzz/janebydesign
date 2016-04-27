@@ -63,6 +63,18 @@ a,
     color: $blue;
   }
 
+  .snippet {
+    font-size: 1.5rem;
+    font-family: 'NotCourierSansRegular';
+    font-weight: 700;
+  }
+
+  .tags {
+    font-family: 'NotCourierSansRegular';
+    font-size: 1.4rem;
+    background-color: $yellow;
+  }
+
   .bullet {
     font-size: 1.5rem;
   }
