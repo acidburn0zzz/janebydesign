@@ -34,11 +34,12 @@ var collectPosts = function() {
   var posts = [];
 
   return through.obj(function(file, enc, cb) {
-    var post = file.page;
-    post.body = file.contents.toString();
-    post.summary = summarize(post.body);
+    posts.push(file.page);
+    var post       = posts[posts.length - 1];
+    post.body      = file.contents.toString();
+    post.summary   = summarize(post.body);
     post.permalink = permalink(file.relative);
-    posts.push(post);
+    this.push(file);
     cb();
   }, function(cb) {
     site.posts = posts;
@@ -47,7 +48,7 @@ var collectPosts = function() {
 };
 
 gulp.task('blog', function() {
-  return gulp.src('src/posts/**/*.md')
+  return gulp.src(['src/posts/**/*.md'])
              .pipe(frontMatter({property: 'page', remove: true}))
              .pipe(data({site: site}))
              .pipe(markdown())
@@ -55,8 +56,7 @@ gulp.task('blog', function() {
              .pipe(wrap(function(data) {
                 return fs.readFileSync('src/templates/blog.html').toString();
              }, null, {engine: 'nunjucks'}))
-             .pipe(gulp.dest('dist/blog'))
-             ;
+             .pipe(gulp.dest('dist/blog'));
 });
 
 gulp.task('pages', ['blog'],function() {
@@ -90,6 +90,7 @@ gulp.task('scripts', function() {
 
 // install a watcher here (gulp-watcher)
 gulp.task('watch', ['css', 'pages', 'blog'], function() {
+  gulp.watch('src/img/**/*', ['images']);
   gulp.watch('src/sass/**/*.scss', ['css']);
   gulp.watch('src/**/*.html', ['pages', 'blog']);
   gulp.watch('src/posts/**/*.md', ['blog']);
