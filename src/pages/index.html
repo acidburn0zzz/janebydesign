@@ -22,13 +22,13 @@
     <li>
       <a href="#">
         <div class="box">
-          <span class="title">{{ post.title }}</span>
+          <span class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></span>
           <br />
           <span class="author">{{ post.author }}</span>
           <span class="bullet">·</span>
           <span class="category">{{ post.category }}</span>
           <br />
-          <span class="snippet dot-ellipsis dot-resize-update dot-height-20">{{ post.body }}</span>
+          <span class="snippet">{{ post.summary | safe }}</span>
           <br /><br />
           <span class="tags">{{ post.tags }}</span>
         </div>

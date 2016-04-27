@@ -4,9 +4,10 @@ var site = {
 };
 
 
-var gulp       = require('gulp'),
-    del        = require('del'),
-    data       = require('gulp-data'),
+var gulp       = require('gulp');
+var del        = require('del');
+var     wrap   = require('gulp-wrap');
+var     data   = require('gulp-data'),
     markdown   = require('gulp-markdown'),
     sequence   = require('gulp-sequence'),
   frontMatter  = require('gulp-front-matter'),
@@ -16,14 +17,27 @@ nunjucksRender = require('gulp-nunjucks-render'),
     concat     = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
       through  = require('through2'),
+      fs  = require('fs'),
     watch      = require('gulp-watch'),
     webserver  = require('gulp-webserver');
 
+
+var summarize = function(text) {
+  return text.split("<!--more-->")[0]
+};
+
+var permalink = function(path) {
+  return "/blog/" + path;
+};
+
 var collectPosts = function() {
   var posts = [];
+
   return through.obj(function(file, enc, cb) {
     var post = file.page;
     post.body = file.contents.toString();
+    post.summary = summarize(post.body);
+    post.permalink = permalink(file.relative);
     posts.push(post);
     cb();
   }, function(cb) {
@@ -35,13 +49,17 @@ var collectPosts = function() {
 gulp.task('blog', function() {
   return gulp.src('src/posts/**/*.md')
              .pipe(frontMatter({property: 'page', remove: true}))
-             .pipe(collectPosts())
              .pipe(data({site: site}))
              .pipe(markdown())
-             .pipe(gulp.dest('dist'));
+             .pipe(collectPosts())
+             .pipe(wrap(function(data) {
+                return fs.readFileSync('src/templates/blog.html').toString();
+             }, null, {engine: 'nunjucks'}))
+             .pipe(gulp.dest('dist/blog'))
+             ;
 });
 
-gulp.task('pages', function() {
+gulp.task('pages', ['blog'],function() {
   return gulp.src('src/pages/**/*.html')
              .pipe(data({site: site}))
              .pipe(nunjucksRender({

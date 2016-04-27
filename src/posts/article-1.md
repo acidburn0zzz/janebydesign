@@ -1,10 +1,14 @@
 ---
-layout: post.html
 title: I am an awesome title
 author: Jane
 category: Learning
-tags: uno dos tres
+tags: uno, dos, tres
 ---
+Lorem dignissimos ratione atque explicabo amet nihil? Itaque cupiditate suscipit suscipit dicta illum accusantium iste. Illo aliquid ad omnis corporis architecto libero odit quos ullam quibusdam. Nihil fugit voluptatem ducimus.
+
+Dolor recusandae perspiciatis similique cupiditate sunt. Officia a commodi consequuntur repellat porro. Omnis optio error sapiente veritatis vero qui. Fuga impedit nam ipsum fuga eius perspiciatis blanditiis corrupti iste perspiciatis.
+
+<!--more-->
 
 # This is an h1
 ## this is h2

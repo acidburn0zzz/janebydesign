@@ -1,0 +1,24 @@
+$mint: #30D2B8;
+$light-mint: #7CF6E3;
+$opacity-mint: #E0F9F5;
+$light-grey: #FAFAFA;
+$yellow: #FFF712;
+$dark-grey: #36383E;
+$blue: #00BCD4;
+$white: #FFF;
+$black: #000;
+
+body {
+  font-family: 'NotCourierSansRegular';
+  color: $dark-grey;
+  font-size: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'NotCourierSansBold';
+  color: $black;
+}
