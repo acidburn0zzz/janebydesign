@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/notcouriersans" type="text/css"/>
-    {% block head %}{% endblock %}
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -41,10 +40,11 @@
     </div>
     <div class="container">
       {% block body %}{% endblock %}
-      <nav class="navbar navbar-default navbar-fixed-bottom">
-        <a href="#" class="btn btn-circle" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
-      </nav>
     </div>
+   <nav class="navbar navbar-default navbar-fixed-bottom">
+     <a href="#" class="btn btn-circle" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
+   </nav>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

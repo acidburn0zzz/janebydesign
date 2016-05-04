@@ -13,28 +13,35 @@
   <br /><br />
   <p>WELCOME TO MY MIND. <s>NOTHING CRAZY HERE.</s></p>
 </div>
-<hr>
-<div class="latest-posts">
-  <span>LATEST POSTS</span>
-  <span class="label label-default"><a href="#">VIEW ALL POSTS</a></span>
-  <ul class="preview">
-    {% for post in site.posts %}
-    <li>
-      <a href="#">
-        <div class="box">
-          <span class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></span>
-          <br />
-          <span class="author">{{ post.author }}</span>
-          <span class="bullet">·</span>
-          <span class="category">{{ post.category }}</span>
-          <br />
-          <span class="snippet">{{ post.summary | safe }}</span>
-          <br /><br />
-          <span class="tags">{{ post.tags }}</span>
-        </div>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
+<div class="row">
+  <div class="col-xs-12 col-sm-12"><hr></div>
+  <div class="latest-posts col-xs-12 col-md-8 col-md-offset-2">
+    <div class="col-xs-6 col-sm-3">
+      <span>LATEST POSTS</span>
+    </div>
+    <div class="col-sm-6"></div>
+    <div class="col-xs-6 col-sm-3" style="margin-top: .5rem;">
+      <span class="label label-default"><a href="#">VIEW ALL POSTS</a></span>
+    </div>
+    <ul class="preview">
+      {% for post in site.posts %}
+      <li>
+        <a href="#">
+          <div class="box">
+            <span class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></span>
+            <br />
+            <span class="author">{{ post.author }}</span>
+            <span class="bullet">·</span>
+            <span class="category">{{ post.category }}</span>
+            <br />
+            <span class="snippet">{{ post.summary | safe }}</span>
+            <br /><br />
+            <span class="tags">{{ post.tags }}</span>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
 {% endblock %}

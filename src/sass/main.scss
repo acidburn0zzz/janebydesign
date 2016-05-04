@@ -12,6 +12,21 @@ div {
   display: block;
 }
 
+hr {
+  height: .4rem;
+  background-color: $opacity-mint;
+  margin: 1rem auto;
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+
+  .col-sm-3 {
+    text-align: center;
+  }
+}
+
 a,
 .navbar-default .navbar-nav > li > a {
   color: $mint;
@@ -47,6 +62,11 @@ a,
 
 .box {
   padding: 1rem;
+  
+  a {
+    font-size: 2rem;
+    font-weight: 500;
+  }
 
   .title {
     font-size: 2rem;
@@ -57,6 +77,7 @@ a,
     font-size: 1.3rem;
     font-family: 'NotCourierSansRegular';
     color: $dark-grey;
+    text-transform: uppercase;
   }
   
   .category {
@@ -64,9 +85,13 @@ a,
   }
 
   .snippet {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-family: 'NotCourierSansRegular';
-    font-weight: 700;
+    margin: 0;
+
+    * {
+      margin: 0;
+    }
   }
 
   .tags {
@@ -119,7 +144,8 @@ a,
     left: 0;
     width: 25% !important;
     height: 100%;
-    background: no-repeat 70% 50% url("/img/photo.jpg");
+    background: no-repeat 15% 50% url("/img/mollybear2.png");
+    background-size: cover;
     z-index: 1000;
   }
 
@@ -128,7 +154,7 @@ a,
     position: absolute;
     top: 0;
     right: 0;
-    overflow-y: scroll;
+    overflow-y: hidden;
   }
 
   .bio {
@@ -140,14 +166,9 @@ a,
 
   hr {
     width: 60%;
-    height: .4rem;
-    background-color: $opacity-mint;
-    margin: 1rem auto;
   }
 
   .latest-posts {
-    margin: 0 25rem;
-
     > span:nth-child(1) {
       margin-right: 48.5rem;
     }
@@ -172,5 +193,29 @@ a,
       width: 35rem;
       height: 15rem;
     }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .col-sm-3 {
+    width: 35%;
+  }
+
+  .col-sm-6 {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  hr {
+    width: 62%;
+  }
+
+  .col-sm-3 {
+    width: 25%;
+  }
+
+  .col-sm-6 {
+    width: 50%;
   }
 }

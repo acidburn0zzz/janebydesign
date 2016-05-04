@@ -7,10 +7,17 @@ body {
 
   font-family: 'NotCourierSansRegular';
 
-  h1 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: 'NotCourierSansBold';
-    font-size: 4.5em;
     text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 4.5em;
     margin: 0;
   }
 

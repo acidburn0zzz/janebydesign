@@ -3,23 +3,23 @@ var site = {
   posts: []
 };
 
-
-var gulp       = require('gulp');
-var del        = require('del');
-var     wrap   = require('gulp-wrap');
-var     data   = require('gulp-data'),
-    markdown   = require('gulp-markdown'),
-    sequence   = require('gulp-sequence'),
-  frontMatter  = require('gulp-front-matter'),
-nunjucksRender = require('gulp-nunjucks-render'),
-    sass       = require('gulp-sass'),
-    uglify     = require('gulp-uglify'),
-    concat     = require('gulp-concat'),
-    sourcemaps = require('gulp-sourcemaps'),
-      through  = require('through2'),
-      fs  = require('fs'),
-    watch      = require('gulp-watch'),
-    webserver  = require('gulp-webserver');
+var gulp             = require('gulp');
+var del              = require('del');
+var wrap             = require('gulp-wrap');
+var data             = require('gulp-data');
+var markdown         = require('gulp-markdown');
+var sequence         = require('gulp-sequence');
+var frontMatter      = require('gulp-front-matter');
+var nunjucksRender   = require('gulp-nunjucks-render');
+var sass             = require('gulp-sass');
+//var imageminPngcrush = require('imagemin-pngcrush');
+var uglify           = require('gulp-uglify');
+var concat           = require('gulp-concat');
+var sourcemaps       = require('gulp-sourcemaps');
+var through          = require('through2');
+var fs               = require('fs');
+var watch            = require('gulp-watch');
+var webserver        = require('gulp-webserver');
 
 
 var summarize = function(text) {
@@ -30,14 +30,19 @@ var permalink = function(path) {
   return "/blog/" + path;
 };
 
+var tags = function(str) {
+  return str.split(",");
+};
+
 var collectPosts = function() {
   var posts = [];
 
   return through.obj(function(file, enc, cb) {
-    posts.push(file.page);
-    var post       = posts[posts.length - 1];
+    var post = file.page;
+    posts.push(post);
     post.body      = file.contents.toString();
     post.summary   = summarize(post.body);
+    post.tags      = tags(post.tags);
     post.permalink = permalink(file.relative);
     this.push(file);
     cb();
@@ -67,6 +72,12 @@ gulp.task('pages', ['blog'],function() {
              }))
              .pipe(gulp.dest('dist'));
 });
+
+//gulp.task('minifyPng', function() {
+//  return gulp.src('src/img/**/*.png')
+//             .pipe(imageminPngcrush({reduce: true})())
+//             .pipe(gulp.dest('dist/img'));
+//});
 
 gulp.task('images', function() {
   return gulp.src('src/img/**/*')
@@ -99,6 +110,8 @@ gulp.task('watch', ['css', 'pages', 'blog'], function() {
 gulp.task('serve', function() {
   return gulp.src('dist/')
              .pipe(webserver({
+               port: 8000,
+               host: '127.0.0.1',
                livereload: true,
                directoryListing: false,
                open: true
