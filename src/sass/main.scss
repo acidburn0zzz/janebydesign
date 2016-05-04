@@ -61,6 +61,9 @@ a,
 }
 
 .box {
+  background-color: $light-grey;
+  height: auto;
+  margin: 1rem;
   padding: 1rem;
   
   a {
@@ -137,6 +140,13 @@ a,
   text-transform: uppercase;
 }
 
+.box {
+}
+
+.clear {
+  clear: both;
+}
+
 @media only screen and (min-width: 900px) {
   #mastleft {
     position: fixed !important;
@@ -188,11 +198,6 @@ a,
       }
     }
 
-    .box {
-      background-color: $light-grey;
-      width: 35rem;
-      height: 15rem;
-    }
   }
 }
 
