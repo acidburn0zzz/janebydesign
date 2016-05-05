@@ -21,29 +21,23 @@ var fs               = require('fs');
 var watch            = require('gulp-watch');
 var webserver        = require('gulp-webserver');
 
+var extractTitleAndDate = require('./lib/extract-title-and-date');
+var blogPostMeta = require('./lib/blog-post-meta');
 
-var summarize = function(text) {
-  return text.split("<!--more-->")[0]
-};
-
-var permalink = function(path) {
-  return "/blog/" + path;
-};
-
-var tags = function(str) {
-  return str.split(",");
-};
 
 var collectPosts = function() {
   var posts = [];
 
   return through.obj(function(file, enc, cb) {
     var post = file.page;
+    var titleDate = extractTitleAndDate(file.relative);
     posts.push(post);
+    post.title     = titleDate[0];
+    post.date      = titleDate[1];
     post.body      = file.contents.toString();
-    post.summary   = summarize(post.body);
-    post.tags      = tags(post.tags);
-    post.permalink = permalink(file.relative);
+    post.summary   = blogPostMeta.summarize(post.body);
+    post.tags      = blogPostMeta.tags(post.tags);
+    post.permalink = blogPostMeta.permalink(file.relative);
     this.push(file);
     cb();
   }, function(cb) {

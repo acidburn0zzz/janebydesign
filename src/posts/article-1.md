@@ -1,5 +1,4 @@
 ---
-title: I am an awesome title
 author: Jane
 category: Learning
 tags: uno, dos, tres

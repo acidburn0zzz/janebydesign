@@ -38,13 +38,17 @@
     </nav>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="post-body col-xs-12 col-sm-8 col-sm-offset-2">
         <h2 class="blog-title">{{ file.page.title }}</h2>
+        <div class="meta">
+          <!-- <author>{{ file.page.author }}</author><br> -->
+          <date>{{ file.page.date }}</date>
+        </div>
         <br />
         <p class="blog-body">{{ file.page.body | safe }}</p>
       </div>
     </div>
-    <br class="clear" />
+    <div class="clear"></div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <a href="#" class="btn btn-circle" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
