@@ -1,7 +1,14 @@
-$mint: #30D2B8;
+$yellow: #FFF712;
+$light-grey: #FAFAFA;
+$yellow: #FFF712;
+$grey: #AAA;
 $dark-grey: #36383E;
 $blue: #00BCD4;
-$yellow: #FFF712;
+$dark-blue: #00536E;
+$opacity-blue: #DAF5F9;
+$white: #FFF;
+$black: #000;
+
 
 body {
 
@@ -32,7 +39,7 @@ body {
 
   .bio span {
     font-size: 1.3em;
-    color: $blue;
+    color: $dark-blue;
   }
 
   .latest-posts span {
@@ -48,6 +55,6 @@ body {
   .label-default {
     font-family: 'NotCourierSansRegular' !important;
     font-size: 1em !important;
-    color: $mint !important;
+    color: $blue !important;
   }
 }

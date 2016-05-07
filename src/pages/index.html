@@ -26,21 +26,18 @@
     <div class="row">
       <div style="margin-top:1rem;" class="col-xs-12">
         {% for post in site.posts %}
-          <a href="#">
-            <div class="box">
-              <h2 class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-              <author>{{ post.author }}</author>
-                {% if post.date %}
-                <span class="bullet">·</span>
-                <span class="date">{{ post.date }}</span>
-                {% endif %}
+          <div class="box">
+            <!-- <author>{{ post.author }}</author> -->
+            {% if post.date %}
+              <date class="date">{{ post.date }}</date>
               <span class="bullet">·</span>
-              <span class="category">{{ post.category }}</span>
-              <!-- <span class="snippet">{{ post.summary | safe }}</span> -->
-              <br /><br />
-              <span class="tags">{{ post.tags }}</span>
-            </div>
-          </a>
+            {% endif %}
+            <span class="category">{{ post.category }}</span>
+            <h2 class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+            <!-- <span class="snippet">{{ post.summary | safe }}</span> -->
+            <!-- <span class="tags">{{ post.tags }}</span> -->
+            <!-- <br class="clear" /> -->
+          </div>
         {% endfor %}
       </div>
     </div>

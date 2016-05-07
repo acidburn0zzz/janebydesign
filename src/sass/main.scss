@@ -3,8 +3,11 @@ $light-mint: #7CF6E3;
 $opacity-mint: #E0F9F5;
 $light-grey: #FAFAFA;
 $yellow: #FFF712;
+$grey: #AAA;
 $dark-grey: #36383E;
 $blue: #00BCD4;
+$dark-blue: #00536E;
+$opacity-blue: #DAF5F9;
 $white: #FFF;
 $black: #000;
 
@@ -14,7 +17,7 @@ div {
 
 hr {
   height: .4rem;
-  background-color: $opacity-mint;
+  background-color: $opacity-blue;
   margin: 1rem auto;
 }
 
@@ -29,14 +32,13 @@ hr {
 
 a,
 .navbar-default .navbar-nav > li > a {
-  color: $mint;
-  text-transform: uppercase;
-  transition: all .2s ease-in-out;
+  color: $blue;
+  transition: all .5s ease-in-out;
 
   &:hover,
   &:focus {
-    color: $light-mint;
-    transition: all .2s ease-in-out;
+    color: $grey;
+    transition: all .5s ease-in-out;
     text-decoration: none;
   }
 }
@@ -63,8 +65,8 @@ a,
 .box {
   background-color: $light-grey;
   height: auto;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 1rem .5rem;
+  padding: 1rem 1rem .5rem 1rem;
 
   h2 {
     margin-top: 0;
@@ -106,6 +108,7 @@ a,
     font-family: 'NotCourierSansRegular';
     font-size: 1.4rem;
     background-color: $yellow;
+    float: right;
   }
 
   .bullet {
@@ -114,7 +117,7 @@ a,
 
   &:hover {
     box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .2);
-    transform: translate(0, -.5rem);
+    transform: translate(0, -.3rem);
   }
 }
 
@@ -140,8 +143,8 @@ a,
 }
 
 .label-default {
-  background-color: $opacity-mint;
-  color: $mint;
+  background-color: $opacity-blue;
+  color: $blue;
   text-transform: uppercase;
 }
 
