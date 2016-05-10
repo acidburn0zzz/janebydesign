@@ -3,26 +3,13 @@
 {% block title %}JL{% endblock %}
 
 {% block body %}
-<div class="bio">
-  <h1>Jane Lundgren</h1>
-  <span>FRONT-END DEVELOPMENT STUDENT</span>
-  <br /><br /><br />
-  <p>LEARNING THE ROPES OF BEING A <s>GOOD</s> GREAT</p>
-  <p>DEVELOPER, AND LOVING EVERY SECOND OF IT.</p>
-  <p>THANKS, JIM && <a href="devschool.rocks">DEVSCHOOL</a></p>
-  <br /><br />
-  <p>WELCOME TO MY MIND. <s>NOTHING CRAZY HERE.</s></p>
-</div>
 <div class="row">
-  <div class="col-xs-12 col-sm-12"><hr></div>
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <span class="bio span"><center>WELCOME TO MY MIND.<br /><s>NOTHING CRAZY HERE.</s></center></span>
+    <hr>
+  </div>
   <div class="latest-posts col-xs-12 col-md-8 col-md-offset-2">
-    <div class="col-xs-6 col-sm-3">
-      <span>LATEST POSTS</span>
-    </div>
     <div class="col-sm-6"></div>
-    <div class="col-xs-6 col-sm-3" style="margin-top: .5rem;">
-      <span class="label label-default"><a href="#">VIEW ALL POSTS</a></span>
-    </div>
     <div class="row">
       <div style="margin-top:1rem;" class="col-xs-12">
         {% for post in site.posts %}

@@ -1,6 +1,3 @@
-$mint: #30D2B8;
-$light-mint: #7CF6E3;
-$opacity-mint: #E0F9F5;
 $light-grey: #FAFAFA;
 $yellow: #FFF712;
 $grey: #AAA;
@@ -30,6 +27,21 @@ hr {
   }
 }
 
+.brand-img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.navbar-brand {
+  padding: .5rem;
+}
+
+.nav .navbar-default .navbar-fixed-bottom {
+  background-color: $white !important;
+  padding-top: .5rem !important;
+}
+
 a,
 .navbar-default .navbar-nav > li > a {
   color: $blue;
@@ -37,7 +49,7 @@ a,
 
   &:hover,
   &:focus {
-    color: $grey;
+    color: $dark-blue;
     transition: all .5s ease-in-out;
     text-decoration: none;
   }
@@ -74,7 +86,7 @@ a,
 
   a {
     font-size: 2rem;
-    font-weight: 500;
+    text-transform: capitalize;
   }
 
   .title {
@@ -91,7 +103,7 @@ a,
   }
   
   .category {
-    color: $blue;
+    color: $dark-blue;
   }
 
   .snippet {
@@ -127,19 +139,28 @@ a,
   width: inherit;
   margin-left: auto;
 
-  .navbar-default .navbar-fixed-bottom {
-    background-color: $white !important;
-  }
+  
 }
 
 .container {
   padding: 0;
-  margin: 10rem auto 5rem;
+  margin: 8rem auto 5rem;
 }
 
 .bio {
-  padding-top: 5rem;
   text-align: center;
+
+  span {
+    color: $dark-blue;
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+  }
 }
 
 .label-default {
@@ -155,16 +176,62 @@ a,
   clear: both;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (max-width: 320px) {
+  .col-xs-8 {
+    padding-right: 0;
+  }
+  
+  .blog-post-nav {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  h3 {
+    margin: 0;
+  }
+
+  .bio {
+    text-align: center;
+  }
+
+  .container {
+    margin-top: 3rem;
+  }
+
+  .btn-circle {
+    margin-right: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
   #mastleft {
     position: fixed !important;
     top: 0;
     left: 0;
     width: 25% !important;
-    height: 100%;
+    height: 50%;
     background: no-repeat 15% 50% url("/img/mollybear2.png");
     background-size: cover;
     z-index: 1000;
+  }
+
+  #leftbot {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    width: 25% !important;
+    height: 50%;
+    z-index: 1000;
+    overflow-y: hidden;
+  }
+
+  .bio {
+    h3 {
+      margin: 1rem .5rem .2rem .5rem;
+    }
+
+   
   }
 
   .container {
@@ -173,13 +240,6 @@ a,
     top: 0;
     right: 0;
     overflow-y: hidden;
-  }
-
-  .bio {
-    margin: 14rem auto 10rem;
-    padding: 0;
-    width: 60%;
-    max-width: 100rem;
   }
 
   hr {

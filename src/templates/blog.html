@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/index.html">HOME</a>
+          <a class="navbar-brand" href="/index.html"><img class="brand-img" src="/img/mollybear2.png"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,11 +41,19 @@
       <div class="post-body col-xs-12 col-sm-8 col-sm-offset-2">
         <h2 class="blog-title">{{ file.page.title }}</h2>
         <div class="meta">
-          <!-- <author>{{ file.page.author }}</author><br> -->
-          <date>{{ file.page.date }}</date>
+          {% if file.page.date %}
+            <date>{{ file.page.date }}</date>
+            <span class="bullet">&nbsp;·&nbsp;</span>
+          {% endif %}
+          <author>{{ file.page.author }}</author>
         </div>
+        <br class="clear" />
         <br />
         <p class="blog-body">{{ file.page.body | safe }}</p>
+        <br class="clear" />
+        <div class="meta">
+          <tags>{{ file.page.tags}}</tags>
+        </div>
       </div>
     </div>
     <div class="clear"></div>
