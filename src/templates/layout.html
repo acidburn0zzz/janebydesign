@@ -6,8 +6,9 @@
     <title>{% block title %}JL{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/css/fonts.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/css/main.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/app.min.css"/>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/notcouriersans" type="text/css"/>
   </head>
   <body>
@@ -45,7 +46,6 @@
             <h3>Jane Lundgren</h3>
             <span>FRONT-END DEV STUDENT</span>
           </center>
-          <br />
           <p>
             Learning the ropes of being a <s>good</s> great
             developer, and loving every second of it.
@@ -57,7 +57,7 @@
     <div class="container">
       {% block body %}{% endblock %}
     </div>
-   <nav class="navbar navbar-default navbar-fixed-bottom">
+   <nav class="navbar navbar-default navbar-fixed-bottom navbar-fixed-bottom-mast">
      <a href="#" class="btn btn-circle" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
    </nav>
 

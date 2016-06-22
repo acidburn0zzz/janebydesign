@@ -12,25 +12,24 @@ $black: #000;
 
 body {
 
-  font-family: 'NotCourierSansRegular';
+  font-family: 'NotCourierSansRegular', monospace;
 
   h1,
   h2,
   h3,
   h4,
   h5 {
-    font-family: 'NotCourierSansBold';
+    font-family: 'NotCourierSansBold', monospace;
     text-transform: uppercase;
   }
 
   h1 {
     font-size: 4.5em;
-    margin: 0;
   }
 
   p {
-    margin-bottom: 0;
     font-size: 1.2em;
+    // margin: 1.5em auto 2.5em;
   }
 
   ::selection {
@@ -39,7 +38,7 @@ body {
 
 
   .latest-posts span {
-    font-family: 'NotCourierSansBold';
+    font-family: 'NotCourierSansBold', monospace;
     font-size: 1.8rem;
     color: $dark-grey;
   }
@@ -49,7 +48,7 @@ body {
   }
 
   .label-default {
-    font-family: 'NotCourierSansRegular' !important;
+    font-family: 'NotCourierSansRegular', monospace !important;
     font-size: 1em !important;
     color: $blue !important;
   }

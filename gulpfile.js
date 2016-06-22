@@ -1,5 +1,5 @@
 var site = {
-  title: "My awesome blog/site",
+  title: "JGL",
   posts: []
 };
 
@@ -42,8 +42,7 @@ gulp.task('blog', function() {
              .pipe(plugins.wrap(function(data) {
                 return fs.readFileSync('src/templates/blog.html').toString();
              }, null, {engine: 'nunjucks'}))
-             .pipe(gulp.dest('dist/blog'));
-});
+             .pipe(gulp.dest('dist/blog')); }); 
 
 gulp.task('pages', ['blog'],function() {
   return gulp.src('src/pages/**/*.html')
@@ -67,7 +66,10 @@ gulp.task('images', function() {
 
 gulp.task('css', function() {
   return gulp.src('src/sass/**/*.scss')
+             .pipe(plugins.sourcemaps.init())
              .pipe(plugins.sass({outputStyle: 'compressed'}))
+             .pipe(plugins.concat('app.min.css'))
+             .pipe(plugins.sourcemaps.write())
              .pipe(gulp.dest('dist/css'));
 });
 
