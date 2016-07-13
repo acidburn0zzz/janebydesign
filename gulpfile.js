@@ -106,3 +106,8 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('default', plugins.sequence('clean', ['images', 'css', 'scripts'], 'blog', 'pages', ['serve', 'watch']));
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+             .pipe(plugins.ghPages());
+});
