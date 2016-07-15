@@ -42,7 +42,8 @@ gulp.task('blog', function() {
              .pipe(plugins.wrap(function(data) {
                 return fs.readFileSync('src/templates/blog.html').toString();
              }, null, {engine: 'nunjucks'}))
-             .pipe(gulp.dest('dist/blog')); }); 
+             .pipe(gulp.dest('dist/posts'));
+});
 
 gulp.task('pages', ['blog'],function() {
   return gulp.src('src/pages/**/*.html')
@@ -94,10 +95,11 @@ gulp.task('serve', function() {
   return gulp.src('dist/')
              .pipe(plugins.webserver({
                port: 8000,
+               path: '/blog',
                host: '127.0.0.1',
                livereload: true,
                directoryListing: false,
-               open: true
+               open: 'blog'
              }));
 });
 
@@ -107,6 +109,7 @@ gulp.task('clean', function(cb) {
 
 gulp.task('default', plugins.sequence('clean', ['images', 'css', 'scripts'], 'blog', 'pages', ['serve', 'watch']));
 
+// deploy pages to spilledmilk.github.io/blog
 gulp.task('deploy', function() {
   return gulp.src('dist/**/*')
              .pipe(plugins.ghPages());
