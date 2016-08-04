@@ -14,16 +14,20 @@
       <div style="margin-top:1rem;" class="col-xs-12">
         {% for post in site.posts %}
           <div class="box">
-            <!-- <author>{{ post.author }}</author> -->
             {% if post.date %}
               <date class="date">{{ post.date }}</date>
               <span class="bullet">·</span>
             {% endif %}
             <span class="category">{{ post.category }}</span>
             <h2 class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-            <!-- <span class="snippet">{{ post.summary | safe }}</span> -->
-            <!-- <span class="tags">{{ post.tags }}</span> -->
-            <!-- <br class="clear" /> -->
+            <div class="snippet">{{ post.summary | safe }}</div> 
+            <br />
+            <div class="tags">
+              {% for tag in post.tags %}
+              <a href="tags.html?tag={{tag}}">{{ tag }}</a>
+              {% endfor %}
+            </div>
+            <br class="clear" /> 
           </div>
         {% endfor %}
       </div>

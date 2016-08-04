@@ -73,16 +73,19 @@ strong {
 tags {
   background-color: $yellow;
   float: right;
-  margin-top: 3rem;
 }
 
-//.clear {
-//  clear: both;
-//}
+.clear {
+  clear: both;
+}
 
 .content {
   bottom: 5rem;
   position: fixed;
+}
+
+.author-date {
+  float: left;
 }
 
 .navbar-center {
@@ -102,6 +105,9 @@ tags {
   background-color: $white !important;
 }
 
+.col-post-nav {
+  margin-top: 3rem;
+}
 
 .blog-post-nav {
   margin-top: 1rem;

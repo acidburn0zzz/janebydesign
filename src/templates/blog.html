@@ -39,20 +39,22 @@
     <div class="row">
       <div class="post-body col-xs-12 col-sm-8 col-sm-offset-2">
         <h2 class="blog-title">{{ file.page.title }}</h2>
-        <div class="meta">
+        <div class="meta author-date">
           {% if file.page.date %}
             <date>{{ file.page.date }}</date>
             <span class="bullet">&nbsp;·&nbsp;</span>
           {% endif %}
           <author>{{ file.page.author }}</author>
         </div>
+        <div class="meta tags">
+          {% for tag in file.page.tags %}
+            <a class="tag" href="/blog/tags.html?tag={{tag}}">{{ tag }}</a>
+          {% endfor %}
+        </div>
         <br class="clear" />
         <br />
         <p class="blog-body">{{ file.page.body | safe }}</p>
         <br class="clear" />
-        <div class="meta">
-          <tags>{{ file.page.tags}}</tags>
-        </div>
       </div>
     </div>
     <div class="clear"></div>
@@ -60,7 +62,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom navbar-fixed-bottom-blog">
       <a href="#" class="btn btn-circle" role="button"><i class="fa fa-search" aria-hidden="true"></i></a>
       <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-xs-8 col-xs-offset-2 col-post-nav">
           <ul class="blog-post-nav">
             <li><a href="#">« Previous Post</a></li>
             <li> || </li>

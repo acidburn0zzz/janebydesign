@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}Tags{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    {% for tag in site.tagNames %}
+    <h2 id="tag-title" class="center"></h2>
+    {% endfor %}
+    <hr>
+  </div>
+  <div class="latest-posts col-xs-12 col-md-8 col-md-offset-2">
+    <div class="col-sm-6"></div>
+    <div class="row">
+      <div style="margin-top:1rem;" class="col-xs-12">
+        {% for tag in site.tagNames %}
+        <ul id="{{tag}}" class="list-inline tagged-post">
+          <h3 class="tag-title">{{ tag }}</h3>
+            {% for post in site.tags[tag] %}
+            <li class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

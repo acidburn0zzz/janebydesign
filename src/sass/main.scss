@@ -50,7 +50,6 @@ hr {
 }
 
 .navbar.navbar-default.navbar-fixed-bottom {
-  padding-top: .5rem !important;
 
   .navbar-fixed-bottom-mast {
     background-color: transparent !important;
@@ -80,7 +79,7 @@ a,
   color: $dark-grey;
   float: right;
   height: 4rem;
-  margin-right: 3rem;
+  margin: 3rem;
   opacity: .5;
   width: 4rem;
 
@@ -136,10 +135,16 @@ a,
   }
 
   .tags {
-    background-color: $yellow;
     float: right;
     font-family: 'NotCourierSansRegular', monospace;
-    font-size: 1.4rem;
+
+    a {
+      background-color: $yellow;
+      color: $black;
+      font-size: 1.4rem;
+      padding: 0 .5rem;
+      text-transform: uppercase;
+    }
   }
 
   .bullet {
