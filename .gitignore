@@ -1,4 +1,3 @@
+dist/
 node_modules
 .DS_Store
-src/posts/2016/04
-src/posts/article-1.md
