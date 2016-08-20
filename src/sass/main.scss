@@ -1,86 +1,167 @@
-$light-grey: #fafafa;
-$yellow: #fff712;
-$grey: #aaa;
-$dark-grey: #36383e;
-$blue: #00bcd4;
-$dark-blue: #00536e;
-$opacity-blue: #daf5f9;
-$white: #fff;
-$black: #000;
-$opacity-hover: rgba(0, 0, 0, .2);
+//---- IMPORT ----//
+@import 'variables';
 
-body {
-  font-family: 'NotCourierSansRegular', monospace;
-  font-size: 1.5rem;
-}
-
+//---- BODY ----//
 div {
   display: block;
 }
 
 hr {
-  background-color: $opacity-blue;
-  height: .4rem;
-  margin: 1rem auto;
+  background-color: $grey;
+  height: .1rem;
+  margin: 1rem 0;
 }
 
-#leftbot {
-  p {
-    margin: 0;
-  }
+.clear {
+  clear: both;
+}
+
+.container {
+  margin: 8rem auto 5rem;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
 }
 
 .row {
   margin-left: 0;
   margin-right: 0;
 
-  .col-sm-3 {
-    text-align: center;
+  div.blog-posts {
+    margin-bottom: 10rem;
+    padding: 0;
   }
 }
 
-.brand-img {
-  border-radius: 50%;
-  height: 4rem;
-  width: 4rem;
+.blog-blurb {
+  margin: 2rem 0 10rem;
+
+  p {
+    float: right;
+    font-style: italic;
+  }
+}
+
+.btn-circle,
+.nav-footer {
+  z-index: 99;
+}
+
+//---- LINKS ----//
+.nav-tags a {
+  background-color: $light-grey;
+  color: $black;
+  display: block;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  padding: .1rem 0;
+  text-transform: lowercase;
+
+  &:hover {
+    background-color: $yellow;
+    color: $black;
+  }
+}
+
+.nav-footer a {
+  color: $white;
+  display: block;
+  margin-right: 2rem;
+
+  &:hover {
+    color: $hover-white;
+  }
+}
+
+//---- NAVIGATION ----//
+.nav-brand {
+  position: static;
+  margin-top: 1.2rem;
+
+  img {
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+.nav-tags {
+  padding: 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+      text-align: center;
+
+    }
+  }
+}
+
+.nav-footer {
+  background-color: $black;
+  height: inherit;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+
+  ul {
+    display: table;
+    margin: 1.5rem auto;
+
+    li {
+      display: table-cell;
+    }
+  }
+
+}
+
+.mobile-nav-panel {
+  display: none;
+  float: right;
+  margin-right: 1rem;
+  margin-top: 2rem;
+}
+
+.navbar.navbar-default {
+  background-color: $black;
+  border: 0;
+  font-family: $font-accent;
+  margin-left: auto;
+  width: inherit;
+}
+
+.nav-tag-links {
+  padding: 0 1rem 0 0;
 }
 
 .navbar-brand {
-  padding: .5rem;
-}
+  padding: 10px 15px;
 
-.navbar.navbar-default.navbar-fixed-bottom {
-
-  .navbar-fixed-bottom-mast {
-    background-color: transparent !important;
-  }
-
-  .navbar-fixed-bottom-blog {
-    background-color: $white !important;
+  img {
+    height: 3rem;
+    width: 3rem;
   }
 }
 
-a,
-.navbar-default .navbar-nav > li > a {
-  color: $blue;
-  transition: all .5s ease-in-out;
-
-  &:hover,
-  &:focus {
-    color: $dark-blue;
-    transition: all .5s ease-in-out;
-    text-decoration: none;
-  }
+//---- SEARCH BUTTON ----//
+.search {
+  bottom: 5rem;
+  position: fixed;
+  right: 0;
 }
 
 .btn-circle {
   background-color: $yellow;
   border-radius: 100%;
-  color: $dark-grey;
+  color: $grey;
   float: right;
   height: 4rem;
-  margin: 3rem;
-  opacity: .5;
+  margin: 1.5rem;
+  opacity: .8;
   width: 4rem;
 
   i {
@@ -92,116 +173,51 @@ a,
   }
 }
 
-.box {
-  background-color: $light-grey;
+//---- POST PREVIEW BLOCKS ----//
+.posts-box {
   height: auto;
-  margin: 1rem .5rem;
-  padding: 1rem 1rem .5rem;
-
-  h2 {
-    margin-top: 0;
-  }
-
-  a {
-    font-size: 2rem;
-    text-transform: capitalize;
-  }
+  margin: 0;
+  padding: 0;
 
   .title {
+    color: $black;
     font-size: 2rem;
-  }
-
-  author,
-  .category,
-  .date {
-    color: $dark-grey;
-    font-family: 'NotCourierSansRegular', monospace;
-    font-size: 1.3rem;
+    margin: 10px 0 5px;
     text-transform: uppercase;
+
+    &:hover {
+      color: $hover-blue;
+    }
   }
 
-  .category {
-    color: $dark-blue;
+  .date {
+    color: $grey;
+    font-family: $font-accent;
+    font-size: $font-size-small;
+    text-transform: uppercase;
   }
 
   .snippet {
-    font-family: 'NotCourierSansRegular', monospace;
-    font-size: 1.4rem;
+    color: $dark-grey;
+    font-family: $font-body;
+    font-size: $font-size-regular;
     margin: 0;
-
-    * {
-      margin: 0;
-    }
   }
 
-  .tags {
-    float: right;
-    font-family: 'NotCourierSansRegular', monospace;
-
-    a {
-      background-color: $yellow;
-      color: $black;
-      font-size: 1.4rem;
-      padding: 0 .5rem;
-      text-transform: uppercase;
-    }
+  .post-tags a {
+    font-size: $font-size-x-small;
+    margin: 0 0 0 .5rem;
   }
 
   .bullet {
-    font-size: 1.5rem;
-  }
-
-  &:hover {
-    box-shadow: 0 .3rem .5rem $opacity-hover;
-    transform: translate(0, -.3rem);
+    font-size: $font-size-regular;
   }
 }
 
-.navbar {
-  background-color: transparent;
-  border: 0;
-  margin-left: auto;
-  width: inherit;
-}
-
-.container {
-  margin: 8rem auto 5rem;
-  padding: 0;
-}
-
-.bio {
-  text-align: center;
-
-  span {
-    color: $dark-blue;
-    font-size: 1.3rem;
-  }
-
-  p {
-    font-size: 1.3rem;
-    padding: 1rem;
+//---- MEDIA SCREENS ----//
+@media only screen and (min-width: 320px) {
+  .blog-blurb p {
     text-align: center;
-    text-transform: uppercase;
-  }
-}
-
-.label-default {
-  background-color: $opacity-blue;
-  color: $blue;
-  text-transform: uppercase;
-}
-
-.clear {
-  clear: both;
-}
-
-@media only screen and (max-width: 320px) {
-  .col-xs-8 {
-    padding-right: 0;
-  }
-
-  .blog-post-nav {
-    font-size: 1.3rem;
   }
 }
 
@@ -210,107 +226,118 @@ a,
     margin: 0;
   }
 
-  .bio {
-    text-align: center;
-  }
-
   .container {
     margin-top: 3rem;
   }
 
-  .btn-circle {
-    margin-right: 1rem;
+  .search {
+    bottom: 0;
+    position: relative;
+
+    .btn-circle {
+      margin-right: 1rem;
+    }
+  }
+
+  .mobile-nav-panel {
+    display: block;
+  }
+
+  .nav-tags {
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+
+    li a {
+      background-color: transparent;
+    }
+  }
+
+  .nav-tags.active {
+    height: auto;
+    overflow: visible;
+    margin-bottom: 1rem;
+
+    ul {
+      border-bottom: 1px solid $light-grey;
+      border-top: 1px solid $light-grey;
+      margin-top: 2rem;
+
+      li {
+        text-align: right;
+
+        a {
+          margin-right: 1rem;
+        }
+
+        &:nth-last-child(1) {
+          a {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-brand {
+    display: inline-block;
+  }
+
+  .row {
+    div.blog-posts {
+      margin-bottom: 0;
+    }
+  }
+
+  .blog-blurb {
+    margin: 2rem 0 6rem;
+
+    p {
+      font-size: 100%;
+      margin: 0 0 3rem;
+    }
+  }
+
+  .nav-footer {
+    ul {
+      display: block;
+
+      li {
+        display: inherit;
+        padding-top: .5rem;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: 768px) {
-  #mastleft {
-    background: no-repeat 15% 50% url("/blog/img/mollybear2.png");
-    background-size: cover;
-    border-radius: 10%;
-    height: 50%;
-    left: 0;
-    position: fixed !important;
-    top: 0;
-    width: 25% !important;
-    z-index: 1000;
-  }
+  .nav-tags {
+    ul {
+      display: table;
 
-  #leftbot {
-    bottom: 0;
-    height: 50%;
-    left: 0;
-    overflow-y: hidden;
-    position: fixed !important;
-    width: 25% !important;
-    z-index: 1000;
-  }
+      li {
+        display: table-cell;
+        width: 1%;
 
-  .navbar-brand {
-    display: none;
-  }
-
-  .bio {
-    h3 {
-      margin: 1rem .5rem .2rem;
-    }
-  }
-
-  .container {
-    overflow-y: hidden;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 75%;
-  }
-
-  hr {
-    width: 60%;
-  }
-
-  .latest-posts {
-    > span:nth-child(1) {
-      margin-right: 48.5rem;
-    }
-  }
-
-  .preview {
-    list-style: none;
-    margin: 5rem 0;
-    padding: 0;
-
-    li {
-      display: inline-block;
-      margin-right: 4.5rem;
-
-      &:nth-child(2) {
-        margin-right: 0;
+        &:nth-last-child(1) {
+          a {
+            margin-right: 0;
+          }
+        }
       }
     }
+  }
 
+  .nav-brand {
+    display: block;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .col-sm-3 {
-    width: 35%;
-  }
-
-  .col-sm-6 {
-    width: 30%;
-  }
 }
 
 @media only screen and (min-width: 1440px) {
-  hr {
-    width: 62%;
-  }
-
-  .col-sm-3 {
-    width: 25%;
-  }
-
-  .col-sm-6 {
-    width: 50%;
+  .blog-blurb p {
+    text-align: right;
   }
 }

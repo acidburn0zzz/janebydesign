@@ -1,0 +1,141 @@
+//----IMPORT----//
+@import 'variables';
+
+body {
+  font-family: $font-body;
+  font-size: $font-size-regular;
+
+  a,
+  .list-inline a,
+  .posts-box a,
+  .posts-box a h2,
+  .blog a,
+  .blog .tags a {
+    color: $blue;
+    font-family: $font-accent;
+    font-size: $font-size-regular;
+    padding: inherit;
+    text-transform: uppercase;
+    transition: all .5s ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: $hover-blue;
+      transition: all .5s ease-in-out;
+      text-decoration: none;
+    }
+  }
+
+  li.rtl-transition,
+  li.ltr-transition {
+    /* Old browsers */
+    background: linear-gradient(to right, $white 50%, $yellow 50%);
+    background-position: left bottom;
+    background-size: 200% 110%;
+    float: left;
+    transition: all .5s ease;
+    width: inherit;
+
+    &:hover {
+      background-position: right bottom;
+    }
+
+    a {
+      border-bottom: 0;
+      color: $black;
+      font-size: $font-size-small !important;
+
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+
+  li.ltr-transition {
+    background: linear-gradient(to left, $white 50%, $yellow 50%);
+    background-position: right bottom;
+    background-size: 200% 110%;
+    float: right !important;
+
+    &:hover {
+      background-position: left bottom;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: $font-accent;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: $font-size-large;
+  }
+
+  p {
+    font-size: $font-size-regular;
+  }
+
+  ::selection {
+    background-color: $yellow;
+  }
+
+  .center-text {
+    text-align: center;
+  }
+
+  .label-default {
+    font-family: $font-accent !important;
+    font-size: $font-size-small !important;
+    color: $blue !important;
+  }
+
+  .mobile-nav-panel {
+    i.fa-bars {
+      font-size: $font-icon-size-regular;
+    }
+  }
+
+  .post-tags {
+    float: right;
+    font-family: $font-accent;
+
+    a {
+      color: $blue;
+      font-size: $font-size-regular;
+      padding: 0 .5rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .blog {
+    a {
+      border-bottom: .1rem $blue solid;
+      color: $black;
+      font-family: $font-body;
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    .tags a {
+      border-bottom: 0;
+      color: $blue;
+      font-family: $font-accent;
+      font-size: $font-size-x-small;
+    } 
+
+    .author-date {
+      font-family: $font-accent;
+      font-size: $font-size-x-small;
+    }
+
+    .blog-title {
+      font-family: $font-accent;
+    }
+  }
+}

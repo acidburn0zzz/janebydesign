@@ -1,12 +1,13 @@
 ---
 author: Jane
 category: Learning
-tags: css, gulp, html, javascript
+tags: css, gulp, html, javascript, learning
 ---
 
-Once upon a time this blog didn't exist. And then it did, thanks to some good ol' fashioned mentoring and learning the tools to make this a possibility. So, what's more fitting that utilising this beautifully built blog to blab about its conception and birth as a first post? Nothing, exactly. Well, let's get to it, shall we? 
-
+<p class="short-summary">How this blog came to be.</p>
 <!--more-->
+
+Once upon a time this blog didn't exist. And then it did, thanks to some good ol' fashioned mentoring and learning the tools to make this a possibility. So, what's more fitting that utilising this beautifully built blog to blab about its conception and birth as a first post? Nothing, exactly. Well, let's get to it, shall we? 
 
 <center>![alt text](http://i.giphy.com/xT9DPybeuKfVL8wslq.gif)</center>
 

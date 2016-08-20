@@ -1,37 +1,27 @@
 {% extends 'layout.html' %}
 
-{% block title %}Caffeine-induced Ramblings{% endblock %}
-
 {% block body %}
-<div class="row">
-  <div class="col-xs-12 col-md-8 col-md-offset-2">
-    <span class="bio span"><center>WELCOME TO MY MIND.<br /><s>NOTHING CRAZY HERE.</s></center></span>
-    <hr>
-  </div>
-  <div class="latest-posts col-xs-12 col-md-8 col-md-offset-2">
-    <div class="col-sm-6"></div>
-    <div class="row">
-      <div style="margin-top:1rem;" class="col-xs-12">
-        {% for post in site.posts %}
-          <div class="box">
-            {% if post.date %}
-              <date class="date">{{ post.date }}</date>
-              <span class="bullet">·</span>
-            {% endif %}
-            <span class="category">{{ post.category }}</span>
-            <h2 class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-            <div class="snippet">{{ post.summary | safe }}</div> 
-            <br />
-            <div class="tags">
-              {% for tag in post.tags %}
-              <a href="tags.html?tag={{tag}}">{{ tag }}</a>
-              {% endfor %}
-            </div>
-            <br class="clear" /> 
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
+<div class="blog-blurb">
+  <p>An assortment of writings of things learnt, useful resources, and personal ramblings.</p>
 </div>
+{% for post in site.posts %}
+  <div class="posts-box">
+    {% if post.date %}
+      <date class="date">{{ post.date }}</date>
+    {% endif %}
+    <div>
+      <a href="{{ post.permalink }}"><h2 class="title">{{ post.title }}</h2></a>
+      <span class="snippet">{{ post.summary | safe }}</span>
+    </div>
+    <br />
+    <div class="post-tags">
+      {% for tag in post.tags %}
+      <a href="tags.html?tag={{tag}}">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    <br class="clear" /> 
+  </div>
+  <hr>
+  <br />
+{% endfor %}
 {% endblock %}

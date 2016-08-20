@@ -3,27 +3,33 @@
 {% block title %}Tags{% endblock %}
 
 {% block body %}
-<div class="row">
-  <div class="col-xs-12 col-md-8 col-md-offset-2">
-    {% for tag in site.tagNames %}
-    <h2 id="tag-title" class="center"></h2>
-    {% endfor %}
-    <hr>
-  </div>
-  <div class="latest-posts col-xs-12 col-md-8 col-md-offset-2">
-    <div class="col-sm-6"></div>
-    <div class="row">
-      <div style="margin-top:1rem;" class="col-xs-12">
-        {% for tag in site.tagNames %}
-        <ul id="{{tag}}" class="list-inline tagged-post">
-          <h3 class="tag-title">{{ tag }}</h3>
-            {% for post in site.tags[tag] %}
-            <li class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
+<div class="blog-blurb">
+  <p id="tag-for-page"></p>
 </div>
+
+{% for tag in site.tagNames.sort() %}
+  <ul id="{{tag}}" class="list-inline">
+    <a href="tags.html?tag={{tag}}"><h2 class="tag-title">{{ tag }}</h2></a>
+      {% for post in site.tags[tag] %}
+        <div class="posts-box posts-per-tag">
+          {% if post.date %}
+            <date class="date">{{ post.date }}</date>
+          {% endif %}
+          <div>
+            <a href="{{ post.permalink }}"><h2 class="title">{{ post.title }}</h2></a>
+            <span class="snippet">{{ post.summary | safe }}</span>
+          </div>
+          <br />
+          <div class="post-tags">
+            {% for tag in post.tags %}
+              <a href="tags.html?tag={{tag}}">#{{ tag }}</a>
+            {% endfor %}
+          </div>
+          <br class="clear" /> 
+          <hr>
+        </div>
+      {% endfor %}
+  </ul>
+{% endfor %}
+<br class="clear" />
 {% endblock %}

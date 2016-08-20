@@ -1,3 +1,7 @@
+//---- IMPORT ----//
+@import 'variables';
+
+//---- BODY ----//
 li {
   list-style: none;
 }
@@ -10,8 +14,14 @@ li {
   padding: 0;
 }
 
+.posts-per-tag {
+  padding-left: 2rem;
+}
+
 .tag-title {
-  margin-bottom: 0.2rem;
+  border-left: .7rem solid $yellow;
+  margin: 5rem 0 1.5rem;
+  padding-left: 1rem;
 }
 
 .title {

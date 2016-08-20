@@ -20,22 +20,22 @@
 
     return through.obj(function(file, enc, cb) {
       var post = file.page;
-      var titleDate = extractTitleAndDate(file.relative);
+      var titleDate = extractTitleAndDate[0](file.relative);
       post.title     = titleDate[0];
-      post.date      = titleDate[1];
+      post.date      = extractTitleAndDate[1](titleDate[1]);
       post.body      = file.contents.toString();
       post.summary   = blogPostMeta.summarize(post.body);
       post.tags      = blogPostMeta.tags(post.tags);
       post.permalink = blogPostMeta.permalink(file.relative);
 
-      posts.push(post);
+      posts.unshift(post);
 
       post.tags.map(function(tag) {
         if (!blogPostMeta.keyExists(tags, tag)) {
           tagNames.push(tag);
           tags[tag] = [];
         }
-        tags[tag].push(post);
+        tags[tag].unshift(post);
       });
 
       this.push(file);
@@ -60,8 +60,8 @@
               .pipe(gulp.dest('dist/posts'));
   });
 
-  gulp.task('pages', ['blog'],function() {
-    return gulp.src('src/pages/**/*.html')
+  gulp.task('pages', ['blog'], function() {
+    return gulp.src('src/pages/**/*.html*')
               .pipe(plugins.data({site: site}))
               .pipe(plugins.nunjucksRender({
                 path: 'src/templates'
@@ -111,7 +111,7 @@
               .pipe(plugins.webserver({
                 port: 8000,
                 path: '/blog',
-                host: '127.0.0.1',
+                host: 'localhost',
                 livereload: true,
                 directoryListing: false,
                 open: 'blog'
