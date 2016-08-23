@@ -29,8 +29,17 @@ $( ".mobile-nav-panel" ).click(function() {
 
 // Highlight links for current page
 var currentPageLink = (function() {
-  $("a").each(function() {
-    if (this.href == window.location) {
+  var currentUrl = window.location;
+  var urlPartialPathname = window.location.pathname.split('/')[1];
+
+  $("#footer a").each(function() {
+    if (this.href.includes(urlPartialPathname)) {
+      $(this).css("color", "#f8e71c");
+    }
+  });
+
+  $("a").not("#footer a").each(function() {
+    if (this.href == currentUrl) {
       $(this).css("background-color", "#f8e71c");
     }
   });
