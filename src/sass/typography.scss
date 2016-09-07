@@ -1,4 +1,4 @@
-//----IMPORT----//
+//- import
 @import 'variables';
 
 body {
@@ -29,7 +29,7 @@ body {
   li.rtl-transition,
   li.ltr-transition {
     /* Old browsers */
-    background: linear-gradient(to right, $white 50%, $yellow 50%);
+    background: linear-gradient(to right, $white 50%, $hover-blue 50%);
     background-position: left bottom;
     background-size: 200% 110%;
     float: left;
@@ -52,7 +52,7 @@ body {
   }
 
   li.ltr-transition {
-    background: linear-gradient(to left, $white 50%, $yellow 50%);
+    background: linear-gradient(to left, $white 50%, $hover-blue 50%);
     background-position: right bottom;
     background-size: 200% 110%;
     float: right !important;
@@ -80,7 +80,7 @@ body {
   }
 
   ::selection {
-    background-color: $yellow;
+    background-color: $hover-blue;
   }
 
   .center-text {
@@ -114,7 +114,7 @@ body {
   .blog {
     a {
       border-bottom: .1rem $blue solid;
-      color: $black;
+      color: $gold;
       font-family: $font-body;
     }
 

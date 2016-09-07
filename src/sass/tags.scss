@@ -1,7 +1,7 @@
 //---- IMPORT ----//
 @import 'variables';
 
-//---- BODY ----//
+//- body
 li {
   list-style: none;
 }
@@ -19,7 +19,7 @@ li {
 }
 
 .tag-title {
-  border-left: .7rem solid $yellow;
+  border-left: .7rem solid $gold;
   margin: 5rem 0 1.5rem;
   padding-left: 1rem;
 }

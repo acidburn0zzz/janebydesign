@@ -34,13 +34,13 @@ var currentPageLink = (function() {
 
   $("#footer a").each(function() {
     if (this.href.includes(urlPartialPathname)) {
-      $(this).css("color", "#f8e71c");
+      $(this).css("color", "#daa93d");
     }
   });
 
   $("a").not("#footer a").each(function() {
     if (this.href == currentUrl) {
-      $(this).css("background-color", "#f8e71c");
+      $(this).css("background-color", "#daa93d");
     }
   });
 })();
