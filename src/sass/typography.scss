@@ -11,7 +11,7 @@ body {
   .posts-box a h2,
   .blog a,
   .blog .tags a {
-    color: $blue;
+    color: $sunshine;
     font-family: $font-accent;
     font-size: $font-size-regular;
     padding: inherit;
@@ -20,7 +20,7 @@ body {
 
     &:hover,
     &:focus {
-      color: $hover-blue;
+      color: $grey;
       transition: all .5s ease-in-out;
       text-decoration: none;
     }
@@ -29,7 +29,7 @@ body {
   li.rtl-transition,
   li.ltr-transition {
     /* Old browsers */
-    background: linear-gradient(to right, $white 50%, $hover-blue 50%);
+    background: linear-gradient(to right, $white 50%, $sunshine 50%);
     background-position: left bottom;
     background-size: 200% 110%;
     float: left;
@@ -52,7 +52,7 @@ body {
   }
 
   li.ltr-transition {
-    background: linear-gradient(to left, $white 50%, $hover-blue 50%);
+    background: linear-gradient(to left, $white 50%, $sunshine 50%);
     background-position: right bottom;
     background-size: 200% 110%;
     float: right !important;
@@ -80,7 +80,7 @@ body {
   }
 
   ::selection {
-    background-color: $hover-blue;
+    background-color: $selection;
   }
 
   .center-text {
@@ -90,7 +90,7 @@ body {
   .label-default {
     font-family: $font-accent !important;
     font-size: $font-size-small !important;
-    color: $blue !important;
+    color: $mint !important;
   }
 
   .mobile-nav-panel {
@@ -104,17 +104,21 @@ body {
     font-family: $font-accent;
 
     a {
-      color: $blue;
+      color: $forest;
       font-size: $font-size-regular;
       padding: 0 .5rem;
       text-transform: uppercase;
+
+      &:hover {
+        color: $mint;
+      }
     }
   }
 
   .blog {
     a {
-      border-bottom: .1rem $blue solid;
-      color: $gold;
+      border-bottom: .3rem $sunshine solid;
+      color: $black;
       font-family: $font-body;
     }
 
@@ -124,10 +128,14 @@ body {
 
     .tags a {
       border-bottom: 0;
-      color: $blue;
+      color: $forest;
       font-family: $font-accent;
       font-size: $font-size-x-small;
-    } 
+
+      &:hover {
+        color: $mint;
+      }
+    }
 
     .author-date {
       font-family: $font-accent;

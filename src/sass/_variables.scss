@@ -1,19 +1,19 @@
 //- colors
-$black: #000;
-$blue: #003365;
+$black: #1d2b24;
+$sunshine: #f3d34b;
+$forest: #015249;
+$mint: #7aa694;
+
 $dark-grey: #333;
-$gold: #daa93d;
 $grey: #808080;
 $light-grey: #d8d8d8;
-$pink: #c2507d;
 $white: #fff;
-$yellow: #f8e71c;
 
-$hover-blue: rgba($blue, .3);
+$code-background: rgba($sunshine, .5);
 $hover-opacity: rgba($black, .2);
-$hover-pink: rgba($pink, .3);
 $hover-white: rgba($white, .5);
 $shadow: rgba($black, .5);
+$selection: rgba($mint, .5);
 
 //- fonts
 $font-body: 'Inconsolata', 'Courier New', monospace;

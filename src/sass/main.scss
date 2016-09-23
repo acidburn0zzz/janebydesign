@@ -65,8 +65,8 @@ img {
   text-transform: lowercase;
 
   &:hover {
-    background-color: $gold;
-    color: $black;
+    background-color: $forest;
+    color: $white;
   }
 }
 
@@ -76,7 +76,7 @@ img {
   margin-right: 2rem;
 
   &:hover {
-    color: $hover-white;
+    color: $sunshine;
   }
 }
 
@@ -85,9 +85,14 @@ img {
   position: static;
   margin-top: 1.2rem;
 
-  img {
-    height: 3rem;
-    width: 3rem;
+  a {
+    border-bottom: 0 !important;
+    text-decoration: none;
+
+    img {
+      height: 4rem;
+      width: 4rem;
+    }
   }
 }
 
@@ -160,9 +165,9 @@ img {
 }
 
 .btn-circle {
-  background-color: $grey;
+  background-color: $mint;
   border-radius: 100%;
-  color: $white;
+  color: $dark-grey;
   float: right;
   height: 4rem;
   margin: 1.5rem;
@@ -174,7 +179,7 @@ img {
   }
 
   &:hover {
-    opacity: 1;
+    color: $white;
   }
 }
 
@@ -191,7 +196,7 @@ img {
     text-transform: uppercase;
 
     &:hover {
-      color: $hover-blue;
+      color: $mint;
     }
   }
 

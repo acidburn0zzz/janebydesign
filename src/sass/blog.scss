@@ -13,7 +13,7 @@
   }
 
   .blog-title {
-    border-bottom: 1rem solid $dark-grey !important;
+    border-bottom: 1rem solid $mint !important;
     margin-bottom: 0;
     padding-bottom: 1rem;
     text-align: center;
@@ -47,7 +47,21 @@
     top: 2rem;
 
     img {
-      margin: .5rem auto 5rem;
+      margin: .5rem auto;
+    }
+
+    h3 {
+      border-top: 1rem solid $light-grey;
+      margin-top: 4rem;
+      padding-top: .5rem;
+    }
+
+    h4,
+    h5 {
+      border-left: .5rem solid $sunshine;
+      color: $dark-grey;
+      padding-left: .5rem;
+      margin-top: 4rem;
     }
 
     h1,
@@ -55,12 +69,13 @@
     h3,
     h4,
     h5 {
-      border-bottom: 1rem solid $light-grey;
-      margin-top: 0;
-
-      ~ p {
-        margin-bottom: 3rem;
+      + p {
+        margin-top: 0 !important;
       }
+    }
+
+    p {
+      margin-top: 3rem;
     }
 
     .short-summary {

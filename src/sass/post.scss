@@ -1,0 +1,13 @@
+//- import
+@import 'variables';
+
+code {
+  background-color: $code-background;
+  color: $black;
+}
+
+pre {
+  border: none;
+  color: $mint;
+  opacity: 1;
+}
