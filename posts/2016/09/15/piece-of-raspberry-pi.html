@@ -1,0 +1,218 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="57x57" href="../../../../img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../../../img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../../../img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../../../img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../../../img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../../../img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../../../img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../../../img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../../android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../../../img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="../../../../img/favicon/favicon.ico">
+    <title>Blurbs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/blog/css/app.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata:400|Poppins:400">
+  </head>
+  <body>
+    <!-- CONTENT -->
+    <div class="blog container-fluid">
+      <div class="row">
+        <div class="nav-brand">
+          <a href="/"><img class="shadow" src="/blog/img/logo2.png"></a>
+        </div>
+        <div class="mobile-nav-panel">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <nav class="back-blog-home col-xs-12 col-md-10 col-md-offset-1" role="navigation">
+          <ul>
+            <li class="rtl-transition"><a href="/blog/"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> back to blog home</a></li>
+          </ul>
+        </nav>
+
+        <div class="post-body col-xs-12 col-md-10 col-md-offset-1">
+          <h2 class="blog-title">piece of raspberry pi</h2>
+          <div class="meta author-date">
+            
+              <date>15 september 2016</date>
+              <span class="bullet">&nbsp;·&nbsp;</span>
+            
+            <author>Jane</author>
+          </div>
+          <p class="blog-body"><p><p class="short-summary">Your guide to setting up a Raspberry Pi. This eventually leads to my tutorials on turning your Pi into an Airplay receiver and configuring a wireless adapter.</p>
+<!--more--></p>
+<p>So it&#39;s your first time tasting this delicious Raspberry Pi? Wonderful! I know you&#39;re going to love it. There&#39;s some assembly required before you can really play with it, so let me take you through this journey ✌</p>
+<p><b>Disclaimer: Tutorial based on Macbook running Mac OS X 10.11.16 El Capitan -- will also work with Mac OS X 10.8.x+</b></p>
+<h3 id="gather-thy-materials">Gather Thy Materials</h3>
+<ul>
+<li>• A <a href="http://uk.rs-online.com/web/generalDisplay.html?id=raspberrypi">Raspberry Pi Model B</a></li></li>
+<li>• HDMI cable (this is for connecting your Pi to a monitor for set-up if you don&#39;t go the terminal set-up way)</li></li>
+<li>• Class 10 SD Card (&gt;= 8GB) + card reader (if your computer doesn&#39;t have one)</li></li>
+<li>• USB keyboard &amp; mouse</li></li>
+<li>• Micro USB power supply (&gt;= 700mA @ 5V)</li></li>
+</ul>
+<p>From that list you can see that you&#39;ll basically need the essential computer parts (screen, keyboard, mouse) for the Pi to set everything up. However! - you can also do this whole thing right from the terminal. So much more convenient right? Here&#39;s how to go about all this the hackz0r way.</p>
+<h3 id="terminal-magic">Terminal Magic</h3>
+<p>Yes, really, you can do this without the external monitor, keyboard, and mouse hooked up to your Pi. It takes less time to set up, which means you get to play with the AirPi faster! Also, it&#39;ll make you look really cool. </p>
+<p>To make things easier,</p>
+<pre><code> anything that looks like this
+</code></pre><p>is a command that you can copy/paste into your terminal (although, you may have to change some variables in there). Anything <code>like this</code> is an example or a variable to change in the terminal commands that reflect your own information.</p>
+<h3 id="installing-the-operating-system">Installing the Operating System</h3>
+<p>First things first: all computers need some kind of OS, right? Your Mac has MacOSX, your PC might have Windows or Linux. And justly so, the Pi will need one too -- we&#39;ll be using Rasbian. You can get the latest OS image from <a href="https://www.raspberrypi.org/downloads/raspbian/">this page</a>. Go ahead and download the first one (not &quot;Lite&quot;). As of right today, the latest version is called <b>Rasbian Jessie</b>, released May 2016. Go, go do it now! 🏃</p>
+<p>Ok, now that you&#39;ve grabbed that, let&#39;s actually get to installing the OS.</p>
+<p>Make sure you&#39;ve got your SD card mounted on your computer and it&#39;s clean (e.g. nothing on the card, formatted as FAT32/exFAT). Depending on the operating system of <b>your</b> computer, you can follow these guides for install the OS image: <a href="https://www.raspberrypi.org/documentation/installation/installing-images/mac.md">Mac</a>, <a href="https://www.raspberrypi.org/documentation/installation/installing-images/linux.md">Linux</a>, <a href="https://www.raspberrypi.org/documentation/installation/installing-images/windows.md">Windows</a>. And again, if you&#39;re using a Mac with Mac OSX 10.8.x or later, just follow my shortened instructions (they have pictures).</p>
+<h5 id="-b-get-the-bsd-names-b-"><b>Get the BSD names</b></h5>
+<p>Launch your terminal window and type:</p>
+<pre><code>  diskutil list
+</code></pre><p>This&#39;ll spit out a list of all your disks. Look for the <b>identifier</b> name of your SD reader. It should look something like this:</p>
+<center><img src="../../../../img/screenshots/rpi_diskutil.png" alt="diskutil list"></center>
+
+<p>The identifier you want is the SD card reader disk (not the SD card itself) -- remember this one. It should look like <code>disk2</code>, where the &quot;2&quot; can be any number.<br /></p>
+<h5 id="-b-unmount-the-sd-card-b-"><b>Unmount the SD card</b></h5>
+<p>You&#39;ll be using the identifier from the last step.<br />
+Type</p>
+<pre><code>  diskutil unmountDisk /dev/diskX
+</code></pre><p>into the terminal, where <code>X</code> is the number in your identifier. This will result in something like the below:</p>
+<center><img src="../../../../img/screenshots/rpi_unmount.png" alt="umount successful"></center>
+
+<h5 id="copy-the-image-onto-the-sd-card-br-">Copy the image onto the SD card.<br /></h5>
+<p>To do this, you&#39;re going to run</p>
+<pre><code> sudo dd bs=5m if=RASBIAN_IMAGE_FILE.IMG of=/dev/rdiskX
+</code></pre><p><code>X</code> is that same identifier number and <code>RASBIAN_IMG_FILE.IMG</code> is the path to your *-rasbian-jessie.img file relative to your current working directory. So, for example, if I&#39;m running all my commands from a directory other than where the image file is located, and my image file is in downloads, then my path would look like this: <code>~/Downloads/2016-03-18-rasbian-jessie.img</code>.</p>
+<center><img src="../../../../img/screenshots/rpi_copy_image.png" alt="copy image to SD card"></center>
+
+<p>Notice this will ask you for your admin password. It&#39;s going to take a little while, so be patient. </p>
+<p><b><u>Note:</u></b><br />
+If this fails, try <code>disk</code> instead of <code>rdisk</code>.</p>
+<p>Upon a successful copy, the terminal will spit out something like the following:</p>
+<center><img src="../../../../img/screenshots/rpi_copy_success.png" alt="copy successful"></center>
+
+<p>Fantastic! 👍 Now we get to actually use the Pi. Woohoo!</p>
+<h4 id="digging-into-some-pi">Digging Into Some Pi</h4>
+<p>Okay, right, yes. Eject the SD card, take it out of the reader slot, it&#39;s time to give some attention to your cute Pi</p>
+<h5 id="hookin-it-up">Hookin&#39; It Up</h5>
+<p>Put the SD card into the Pi:</p>
+<center><img src="../../../../img/screenshots/rpi_insert_sd.jpg" alt="insert SD into Pi"></center>
+
+<p>Then plug in an ethernet cable as well as the micro-USB power supply:</p>
+<center><img src="../../../../img/screenshots/rpi_setup.jpg" alt="WiFi and power supply"></center>
+
+<h4 id="ssh-into-that-pi">SSH Into That Pi</h4>
+<p><a href="httpn://en.wikipedia.org/wiki/Secure_Shell">SSH</a>, or Secure Shell, is a way for you to access a remote computer through a session in the terminal. So in this terminal session, you would be able to send commands to the remote computer as if you were physically on it. This is how we&#39;ll be setting things up without having the Pi connected to its own set of monitor/keyboard/mouse. This is a great skill to have -- have fun with it!</p>
+<h5 id="get-pi-s-digits">Get Pi&#39;s Digits</h5>
+<p>In order to SSH into the Pi, you&#39;ll need to obtain its <a href="https://en.wikipedia.org/wiki/IP_address">IP address</a>. There&#39;s a couple ways to get it:</p>
+<p>Open a new tab in your terminal (<code>cmd + t</code>) and type in the command below: </p>
+<pre><code>  arp -a
+</code></pre><p><a href="https://en.wikipedia.org/wiki/Address_Resolution_Protocol">ARP</a>, or Address Resolution Protocol, will allow you to get a list of all your devices and their respective IP addresses on the network you&#39;re on. You should see one called <b class="info-highlight">raspberripi</b> -- its IP address will be in parentheses next to it (in the image below, the IP address for the Pi is where the yellow block is).</p>
+<center><img src="../../../../img/screenshots/rpi_arp.png" alt="arp -a"></center>
+
+<p>Another, less exciting way, is to Use an iPhone/iPad app called <a href="https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8&amp;uo=8&amp;at=11ld4k">Fing</a>. Make sure your iOS device and the Pi are on the same network, as the app scans the network for all devices on your local network. </p>
+<h5 id="conversate-with-pi">Conversate With Pi</h5>
+<p>Now that you have your IP address, you can SSH into the Pi ✨</p>
+<pre><code>  ssh pi@YOUR_IP_ADDRESS
+</code></pre><p>Don&#39;t forget to replace <code>YOUR_IP_ADDRESS</code>.<br />
+Here&#39;s what this step should look like:</p>
+<center><img src="../../../../img/screenshots/rpi_ssh.png" alt="raspberry pi ssh"></center>
+
+<p>Type <code>yes</code> and carry on. It will then ask you for the password, which is</p>
+<pre><code>  raspberry
+</code></pre><center><img src="../../../../img/screenshots/rpi_ssh_login.png" alt="raspberry pi ssh login"></center>
+
+<p>CONGRATS! CHEERS! You&#39;ve just set up your first Pi. Easy peasy. Now that you&#39;ve got it going, we can get into setting up the Pi for Airplay! 🍻</p>
+<h3 id="some-config-">Some Config 🔧</h3>
+<p>Okay, you&#39;re SSH&#39;d into the Pi. Let&#39;s make sure it&#39;s prepared for all the cool things you&#39;re going to put on it. Make sure from this point you&#39;re SSH&#39;d into the Pi when running commands! You should be seeing <code>pi@raspberrypi:~$</code>, or something along the lines of that.</p>
+<h5 id="file-system">File System</h5>
+<p>You want the file system to take up the entire size of the SD card. Right now, the image is minimised -- this allowed for fast downloading and copying onto the SD card. So, we need to expand it.</p>
+<p>To see the available and used disk space on your SD card, type </p>
+<pre><code>  df
+</code></pre><center><img src="../../../../img/screenshots/rpi_df.png" alt="SD card space used"></center>
+
+<p>Your summary should look something like this. Now, let&#39;s resize the partition so the Rasbian OS will take up the entire card. </p>
+<pre><code>  sudo raspi-config
+</code></pre><p>This should bring up a config menu like the one below:</p>
+<center><img src="../../../../img/screenshots/rpi_config_menu.png" alt="config menu"></center>
+
+<p>When you see this, the first option, <code>Expand Filesystem</code> will be highlighted. Press <code>enter</code>.<br />
+You&#39;ll see the regular terminal window again, then you&#39;ll see the following when the process is complete:</p>
+<center><img src="../../../../img/screenshots/rpi_config_success.png" alt="config success"></center>
+
+<p>Press <code>enter</code> again to go back to the config menu.<br />
+Once you&#39;re back to the main config menu, click the <code>right arrow key</code> twice to select <code>finish</code>, then hit <code>enter</code>. This will bring you back to the command line.</p>
+<h5 id="toot-reboot">Toot &amp; Reboot</h5>
+<p>You need to reboot the Pi now to apply the changes:</p>
+<pre><code>  sudo shutdown -r now
+</code></pre><p>This should result in a confirmation message that your SSH connection was suspended.</p>
+<center><img src="../../../../img/screenshots/rpi_reboot.png" alt="shutdown"></center>
+
+<p>Now that the connection is closed, you&#39;re going to SSH back into the Pi. So hit the <b class="info-highligh">up arrow key</b> a few times until you see the</p>
+<pre><code>  ssh pi@YOUR_IP_ADDRESS
+</code></pre><p>command, and press <code>enter</code>. And remember, <code>YOUR_IP_ADDRESS</code> should be yours and the password is </p>
+<pre><code>  raspberry
+</code></pre><p>Awesome, now we&#39;re back to interacting with the Pi!</p>
+<h5 id="update-that-bizniz">Update That Bizniz</h5>
+<p>We&#39;re going to do a little more prep before sinking into the Airplay stuff. First off, we need to make sure that all the Pi&#39;s packages are up to date. You can basically think of this like if you were to update your phone apps. You need to update them when you get the notification icon on the App Store to make sure you&#39;re getting the best overall experience with the app, right? Well, this is what the update for the Pi&#39;s packages does.</p>
+<p>Run these commands, one after another:</p>
+<pre><code>  sudo apt-get update
+  sudo apt-get upgrade
+</code></pre><p>The <code>update</code> command should look something like this:</p>
+<center><img src="../../../../img/screenshots/rpi_update.png" alt="pi update"></center>
+
+<p>The <code>upgrade</code> command will ask you if you&#39;re sure about making changes (upgrades) the the packages it lists.<br />
+Type <code>Y</code> and let it proceed.<br />
+Make sure it&#39;s a capital &#39;Y&#39;, not a lowercase &#39;y&#39;. The upgrade command will look something like the following, and you&#39;ll want to give it a little time -- there may be quite a few upgrades.</p>
+<center><img src="../../../../img/screenshots/rpi_upgrade.png" alt="pi upgrade"></center>
+
+<p>For a little background, the <code>apt-get</code> tool in Rasbian is what handles the updates. It&#39;s an APT (Advanced Packaging Tool) commandline tool. You can read more about it <a href="http://wiki.debian.org/Apt">here</a> if your curiosity is tickled. </p>
+<p>The first <code>update</code> command will do just that -- update the packages and their versions. The following <code>upgrade</code> command will take the information from update, compare that to new information available on each package, and upgrade the package if there&#39;s one available. </p>
+<p>You can think of it like this. Say you&#39;ve baked a batch of cupcakes. At this point, each cupcake in the baking pan is the same. Now, if you took one of those and decorated it with frosting and sprinkles, that&#39;s an update to the cupake. An upgrade would be taking the cupcake batter and making a cake with it -- it&#39;s like cupcake 2.0. </p>
+<p>And that&#39;s it folks, easy as Pi 😉 If you&#39;re itching to get your hands dirty with more Pi shenanigans, try turning it into an AirPlay receiver! I&#39;ve written up a step-by-step guide <a href="../17/let-your-pi-sing.html">here</a>.</p>
+</p>
+          <br class="clear" />
+          <div class="meta tags">
+            
+              <a class="tag" href="/blog/tags.html?tag=diy">#diy</a>
+            
+              <a class="tag" href="/blog/tags.html?tag=learning">#learning</a>
+            
+              <a class="tag" href="/blog/tags.html?tag=raspberrypi">#raspberrypi</a>
+            
+          </div>
+          <br class="clear" />
+          <div class="post-prev-post">
+            <ul class="blog-post-nav">
+              <li class="rtl-transition"><a href="#"><p><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Previous Post</p></a></li>
+              <li class="ltr-transition"><a href="#"><p>Next Post <i class="fa fa-long-arrow-right" aria-hidden="true"></i></p></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEARCH / FOOTER  -->
+    <div class="search"><a href="#" class="btn btn-circle" role="button"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+    <nav id="footer" class="nav-footer col-xs-12 col-md-10 col-md-offset-1 navbar-fixed-bottom">
+      <ul>
+        <li><a href="/">about</a></li>
+        <li><a href="/blog/">blog</a></li>
+        <li><a href="/resume/janelundgren.html">resume</a></li>
+        <li><a href="https://www.github.com/spilledmilk">github</a></li>
+        <li><a href="/portfolio.html">portfolio</a></li>
+        <li><a href="http://500px.com/spilledmilk">photography</a></li>
+      </ul>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/blog/js/app.min.js" type="text/javascript"></script>
+  </body>
+</html>
